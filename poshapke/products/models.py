@@ -31,6 +31,10 @@ class Category(models.Model):
 
 
 class Products(models.Model):
+    class Status(models.IntegerChoices):
+        DRAFT = 0, 'Черновик'
+        PUBLISHED = 1, 'Опубликовано'
+
     name = models.CharField(
         max_length=128,
         help_text='Название Товара',
@@ -70,13 +74,15 @@ class Products(models.Model):
         verbose_name='Время обновления'
     )
     is_published = models.BooleanField(
-        default=False,
-        verbose_name='Видимость Товара'
+        choices=Status.choices,
+        default=Status.DRAFT,
+        verbose_name='Статус Публикации'
     )
     category = models.ForeignKey(
         to=Category,
         on_delete=models.PROTECT,
-        verbose_name='Категория Товара'
+        verbose_name='Категория Товара',
+        related_name='category'
     )
 
     class Meta:
