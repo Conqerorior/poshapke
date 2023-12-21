@@ -34,4 +34,5 @@ class ProductsAdmin(admin.ModelAdmin):
     list_display_links = ('name', 'slug')
     list_filter = ('name',)
     search_fields = ('name',)
-    list_editable = ('is_published', )
+    list_editable = ('is_published', 'category')
+    list_per_page = 6

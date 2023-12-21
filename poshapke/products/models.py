@@ -1,3 +1,4 @@
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
 
@@ -31,10 +32,6 @@ class Category(models.Model):
 
 
 class Products(models.Model):
-    class Status(models.IntegerChoices):
-        DRAFT = 0, 'Черновик'
-        PUBLISHED = 1, 'Опубликовано'
-
     name = models.CharField(
         max_length=128,
         help_text='Название Товара',
@@ -60,6 +57,20 @@ class Products(models.Model):
         help_text='Введите Количество Товара',
         verbose_name='Количество Товара'
     )
+    rating = models.PositiveSmallIntegerField(
+        verbose_name='Рейтинг Товара',
+        help_text='Поставьте оценку',
+        validators=[
+            MinValueValidator(
+                limit_value=1,
+                message='Минимальная оценка 1'
+            ),
+            MaxValueValidator(
+                limit_value=5,
+                message='Максимальная оценка 5'
+            )
+        ]
+    )
     image = models.ImageField(
         upload_to='product_image',
         help_text='Загрузите Фото',
@@ -74,9 +85,8 @@ class Products(models.Model):
         verbose_name='Время обновления'
     )
     is_published = models.BooleanField(
-        choices=Status.choices,
-        default=Status.DRAFT,
-        verbose_name='Статус Публикации'
+        default=False,
+        verbose_name='Видимость Товара'
     )
     category = models.ForeignKey(
         to=Category,
