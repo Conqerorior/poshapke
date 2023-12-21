@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Category(models):
+class Category(models.Model):
     name = models.CharField(
         max_length=128,
         unique=True,
@@ -30,7 +30,7 @@ class Category(models):
         return self.name
 
 
-class Products(models):
+class Products(models.Model):
     name = models.CharField(
         max_length=128,
         help_text='Название Товара',
@@ -82,7 +82,7 @@ class Products(models):
     class Meta:
         verbose_name = 'Товар'
         verbose_name_plural = 'Товары'
-        ordering = ('name',)
+        ordering = ('time_update',)
 
     def __str__(self):
         return self.name
