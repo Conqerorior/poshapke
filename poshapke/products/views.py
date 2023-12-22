@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from products.models import Category
+from products.models import Category, Products
 
 
 def index(request):
@@ -10,6 +10,8 @@ def index(request):
 def products(request):
     context = {
         'title': 'Товары',
-        'categories': Category.objects.all()
+        'categories': Category.objects.all(),
+        'products': Products.objects.all()
     }
-    return render(request, template_name='products/products.html', context=context)
+    return render(request, template_name='products/products.html',
+                  context=context)
