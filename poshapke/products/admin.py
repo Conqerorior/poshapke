@@ -8,12 +8,17 @@ class CategoryAdmin(admin.ModelAdmin):
         'id',
         'name',
         'slug',
-        'description'
+        'description',
+        'get_count'
     )
     list_display_links = ('name', 'slug')
     list_filter = ('name',)
     search_fields = ('name',)
     ordering = ('name', )
+
+    @admin.display(description='Количество Символов')
+    def get_count(self, category: Category):
+        return len(category.description)
 
 
 @admin.register(Products)
@@ -32,7 +37,14 @@ class ProductsAdmin(admin.ModelAdmin):
         'category'
     )
     list_display_links = ('name', 'slug')
-    list_filter = ('name',)
+    list_filter = ('name', 'is_published')
     search_fields = ('name',)
     list_editable = ('is_published', 'category')
     list_per_page = 6
+    actions = ('set_published', )
+    prepopulated_fields = {'slug': ('name', )}
+
+    @admin.action(description='Опубликовать выбранные товары')
+    def set_published(self, request, queryset):
+        count = queryset.update(is_published=True)
+        return self.message_user(request, message=f'Изменено {count}')

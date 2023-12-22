@@ -57,20 +57,20 @@ class Products(models.Model):
         help_text='Введите Количество Товара',
         verbose_name='Количество Товара'
     )
-    rating = models.PositiveSmallIntegerField(
-        verbose_name='Рейтинг Товара',
-        help_text='Поставьте оценку',
-        validators=[
-            MinValueValidator(
-                limit_value=1,
-                message='Минимальная оценка 1'
-            ),
-            MaxValueValidator(
-                limit_value=5,
-                message='Максимальная оценка 5'
-            )
-        ]
-    )
+    # rating = models.PositiveSmallIntegerField(
+    #     verbose_name='Рейтинг Товара',
+    #     help_text='Поставьте оценку',
+    #     validators=[
+    #         MinValueValidator(
+    #             limit_value=1,
+    #             message='Минимальная оценка 1'
+    #         ),
+    #         MaxValueValidator(
+    #             limit_value=5,
+    #             message='Максимальная оценка 5'
+    #         )
+    #     ]
+    # )
     image = models.ImageField(
         upload_to='product_image',
         help_text='Загрузите Фото',
