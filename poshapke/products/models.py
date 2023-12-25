@@ -3,9 +3,7 @@ from django.db import models
 
 
 class Category(models.Model):
-    """
-    Модель Категории
-    """
+
     name = models.CharField(
         max_length=128,
         unique=True,
@@ -35,9 +33,7 @@ class Category(models.Model):
 
 
 class Products(models.Model):
-    """
-    Модель Продукта
-    """
+
     name = models.CharField(
         max_length=128,
         help_text='Название Товара',
