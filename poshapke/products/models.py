@@ -13,8 +13,8 @@ class Category(models.Model):
     slug = models.CharField(
         max_length=128,
         unique=True,
-        help_text='Слаг Категории',
-        verbose_name='Слаг Категории'
+        help_text='URL Категории',
+        verbose_name='URL Категории'
     )
     description = models.TextField(
         max_length=256,
@@ -41,7 +41,7 @@ class Products(models.Model):
     )
     slug = models.CharField(
         max_length=128,
-        verbose_name='Слаг Продукта'
+        verbose_name='URL Продукта'
     )
     description = models.TextField(
         max_length=256,
