@@ -1,0 +1,56 @@
+[
+  {
+    "model": "products.category",
+    "pk": 1,
+    "fields": {
+      "name": "Новинки",
+      "slug": "new",
+      "description": "Новинки в разделе категории"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 2,
+    "fields": {
+      "name": "Шапки",
+      "slug": "cap",
+      "description": "Шапки зимние"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 3,
+    "fields": {
+      "name": "Бейсболка",
+      "slug": "besbolka",
+      "description": "Бейсболки Летние"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 4,
+    "fields": {
+      "name": "Панамы",
+      "slug": "panama",
+      "description": "Панамы Летние"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 5,
+    "fields": {
+      "name": "Балаклава",
+      "slug": "balaklava",
+      "description": "Балаклавы"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 6,
+    "fields": {
+      "name": "Аксессуары",
+      "slug": "accessories",
+      "description": "Аксессуары"
+    }
+  }
+]

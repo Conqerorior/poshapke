@@ -1,0 +1,98 @@
+[
+  {
+    "model": "products.products",
+    "pk": 1,
+    "fields": {
+      "name": "Бейсболка Looney Tunes",
+      "slug": "bejsbolka-looney-tunes",
+      "description": "Кепка унисекс, подходит мужчинам и женщинам. Благодаря регулируемому размеру.",
+      "price": "739.00",
+      "quantity": 10,
+      "image": "product_image/6751054637.jpg",
+      "time_create": "2023-12-27T08:27:31.968Z",
+      "time_update": "2023-12-27T08:27:31.968Z",
+      "is_published": true,
+      "category": 3
+    }
+  },
+  {
+    "model": "products.products",
+    "pk": 2,
+    "fields": {
+      "name": "Панама",
+      "slug": "panama",
+      "description": "Панама идеальный головной убор на летний период",
+      "price": "204.00",
+      "quantity": 10,
+      "image": "product_image/6682395913.jpg",
+      "time_create": "2023-12-27T08:29:50.050Z",
+      "time_update": "2023-12-27T08:29:50.050Z",
+      "is_published": true,
+      "category": 4
+    }
+  },
+  {
+    "model": "products.products",
+    "pk": 3,
+    "fields": {
+      "name": "Шапка HOLODOFF",
+      "slug": "shapka-holodoff",
+      "description": "Описание\r\nКлассическая теплая шапка, с подкладом из натурального турецкого хлопка.",
+      "price": "449.00",
+      "quantity": 10,
+      "image": "product_image/6483745968.jpg",
+      "time_create": "2023-12-27T08:31:53.627Z",
+      "time_update": "2023-12-27T08:31:53.627Z",
+      "is_published": true,
+      "category": 2
+    }
+  },
+  {
+    "model": "products.products",
+    "pk": 4,
+    "fields": {
+      "name": "Шапка Zimkafur",
+      "slug": "shapka-zimkafur",
+      "description": "Мужская шапка-ушанка выполненная из натурального меха енота и из натуральной кожи.",
+      "price": "5500.00",
+      "quantity": 10,
+      "image": "product_image/6521942686.jpg",
+      "time_create": "2023-12-27T08:33:44.640Z",
+      "time_update": "2023-12-27T08:33:44.640Z",
+      "is_published": true,
+      "category": 2
+    }
+  },
+  {
+    "model": "products.products",
+    "pk": 5,
+    "fields": {
+      "name": "Балаклава",
+      "slug": "balaklava",
+      "description": "Самый актуальный головной убор предстоящей зимой.",
+      "price": "430.00",
+      "quantity": 10,
+      "image": "product_image/6812041691.jpg",
+      "time_create": "2023-12-27T08:36:19.711Z",
+      "time_update": "2023-12-27T08:36:19.711Z",
+      "is_published": true,
+      "category": 5
+    }
+  },
+  {
+    "model": "products.products",
+    "pk": 6,
+    "fields": {
+      "name": "Повязка на голову AllDayShop",
+      "slug": "povyazka-na-golovu-alldayshop",
+      "description": "Красная спортивная повязка на голову Jordan отлично подойдет для занятий спортом и повседневного использования.",
+      "price": "617.00",
+      "quantity": 10,
+      "image": "product_image/4801438324.jpg",
+      "time_create": "2023-12-27T08:40:35.170Z",
+      "time_update": "2023-12-27T08:40:35.170Z",
+      "is_published": true,
+      "category": 6
+    }
+  }
+]
