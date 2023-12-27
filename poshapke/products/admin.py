@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
+
 from products.models import Category, Products
 
 
@@ -30,12 +32,13 @@ class ProductsAdmin(admin.ModelAdmin):
         'description',
         'price',
         'quantity',
-        'image',
+        'product_image',
         'time_create',
         'time_update',
         'is_published',
         'category'
     )
+    readonly_fields = ('product_image', )
     list_display_links = ('name', 'slug')
     list_filter = ('name', 'is_published')
     search_fields = ('name',)
@@ -48,3 +51,9 @@ class ProductsAdmin(admin.ModelAdmin):
     def set_published(self, request, queryset):
         count = queryset.update(is_published=True)
         return self.message_user(request, message=f'Изменено {count}')
+
+    @admin.display(description='Фотография Продукта')
+    def product_image(self, product: Products):
+        if product.image:
+            return mark_safe(f'<img src="{product.image.url}" width=50>')
+        return 'Нет Изображения'
