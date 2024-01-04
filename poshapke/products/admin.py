@@ -6,6 +6,7 @@ from products.models import Category, Products
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
+
     list_display = (
         'id',
         'name',
@@ -25,6 +26,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Products)
 class ProductsAdmin(admin.ModelAdmin):
+
     list_display = (
         'id',
         'name',
