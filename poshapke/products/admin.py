@@ -21,6 +21,11 @@ class CategoryAdmin(admin.ModelAdmin):
 
     @admin.display(description='Количество Символов')
     def get_count(self, category: Category):
+        """
+        Получаем количество символов
+        :param category:
+        :return: Длинна символов
+        """
         return len(category.description)
 
 
