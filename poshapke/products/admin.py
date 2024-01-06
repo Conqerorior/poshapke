@@ -56,6 +56,10 @@ class ProductsAdmin(admin.ModelAdmin):
 
     @admin.action(description='Опубликовать выбранные товары')
     def set_published(self, request, queryset):
+        """
+        Позволяет выбрать несколько товаров и
+        опубликовать их.
+        """
         count = queryset.update(is_published=True)
         return self.message_user(request, message=f'Изменено {count}')
 
