@@ -65,6 +65,10 @@ class ProductsAdmin(admin.ModelAdmin):
 
     @admin.display(description='Фотография Продукта')
     def product_image(self, product: Products):
+        """
+        Выводит картинку на экран в
+        админ панели.
+        """
         if product.image:
             return mark_safe(f'<img src="{product.image.url}" width=50>')
         return 'Нет Изображения'
