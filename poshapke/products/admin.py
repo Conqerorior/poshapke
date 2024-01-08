@@ -33,7 +33,9 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Products)
 class ProductsAdmin(admin.ModelAdmin):
-
+    """
+    Модель отображения Продуктов.
+    """
     list_display = (
         'id',
         'name',
