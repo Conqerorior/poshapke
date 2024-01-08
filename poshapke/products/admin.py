@@ -6,7 +6,9 @@ from products.models import Category, Products
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-
+    """
+    Модель отображения категории.
+    """
     list_display = (
         'id',
         'name',
