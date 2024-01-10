@@ -17,69 +17,42 @@
                             </div>
                             <div class="card-body">
                                 <form action="{% url 'users:registration' %}" method="post">
-                                    {% csrf_token %}
-                                    <div class="form-row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="small mb-1" for="{{ form.username.id_for_label }}">
-                                                    Имя
-                                                </label>
-                                                {{ form.first_name }}
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="small mb-1" for="{{ form.username.id_for_label }}">
-                                                    Фамилия
-                                                </label>
-                                                {{ form.last_name }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col-md-6">
-                                            <label class="small mb-1" for="{{ form.username.id_for_label }}">
-                                                Имя пользователя
-                                            </label>
-                                            {{ form.username }}
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="small mb-1" for="{{ form.username.id_for_label }}">
-                                                Адрес электронной почты
-                                            </label>
-                                            {{ form.email }}
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="small mb-1" for="{{ form.username.id_for_label }}">
-                                                    Пароль
-                                                </label>
-                                                {{ form.password1 }}
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="small mb-1" for="{{ form.username.id_for_label }}">
-                                                    Подтверждение пароля
-                                                </label>
-                                                {{ form.password2 }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group mt-4 mb-0">
-                                        <input class="btn btn-primary btn-block" type="submit" value="Создать аккаунт">
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="card-footer text-center">
-                                <div class="small"><a href="{% url 'users:login' %}">Уже есть аккаунт? Авторизоваться</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-{% endblock %}
+                                {% csrf_token %}
 
+                                {% for elem in form %}
+                                    {% if elem.name in 'first_name username password1' %}
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="small mb-1"
+                                                           for="{{ elem.id_for_label }}">{{ elem.label }}</label>
+                                                    {{ elem }}
+                                                </div>
+                                            </div>
+                                        {% else %}
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="small mb-1"
+                                                           for="{{ elem.id_for_label }}">{{ elem.label }}</label>
+                                                    {{ elem }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    <div class=" ">{{ elem.errors }}</div>
+                                {% endfor %}
+
+                         <div class="form-group mt-4 mb-0">
+                             <input class="btn btn-primary btn-block" type="submit" value="Создать аккаунт">
+                         </div>
+                     </form>
+                                                 </div>
+                                                 <div class="card-footer text-center">
+                                                     <div class="small"><a href="{% url 'users:login' %}">Уже есть аккаунт? Авторизоваться</a></div>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </main>
+                     {% endblock %}

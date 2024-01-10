@@ -30,6 +30,7 @@ class UserLoginForm(AuthenticationForm):
 
 class UserRegistrationForm(UserCreationForm):
     first_name = forms.CharField(
+        label='Имя',
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control py-4',
@@ -38,6 +39,7 @@ class UserRegistrationForm(UserCreationForm):
         )
     )
     last_name = forms.CharField(
+        label='Фамилия',
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control py-4',
@@ -46,6 +48,7 @@ class UserRegistrationForm(UserCreationForm):
         )
     )
     username = forms.CharField(
+        label='Имя пользователя',
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control py-4',
@@ -54,6 +57,7 @@ class UserRegistrationForm(UserCreationForm):
         )
     )
     email = forms.CharField(
+        label='Адрес электронной почты',
         widget=forms.EmailInput(
             attrs={
                 'class': 'form-control py-4',
@@ -62,6 +66,7 @@ class UserRegistrationForm(UserCreationForm):
         )
     )
     password1 = forms.CharField(
+        label='Пароль',
         widget=forms.PasswordInput(
             attrs={
                 'class': 'form-control py-4',
@@ -70,6 +75,7 @@ class UserRegistrationForm(UserCreationForm):
         )
     )
     password2 = forms.CharField(
+        label='Подтверждение пароля',
         widget=forms.PasswordInput(
             attrs={
                 'class': 'form-control py-4',
