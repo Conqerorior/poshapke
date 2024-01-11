@@ -100,6 +100,12 @@ class UserRegistrationForm(UserCreationForm):
         )
         verbose_name_plural = 'Регистрация'
 
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError('Такой email уже существует')
+        return email
+
 
 class UserProfileForm(UserChangeForm):
     first_name = forms.CharField(
