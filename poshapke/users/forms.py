@@ -14,7 +14,8 @@ class UserLoginForm(AuthenticationForm):
                 'class': 'form-control py-4',
                 'placeholder': 'Введите имя пользователя'
             }
-        )
+        ),
+        label='Имя пользователя'
     )
     password = forms.CharField(
         widget=forms.PasswordInput(
@@ -28,6 +29,7 @@ class UserLoginForm(AuthenticationForm):
     class Meta:
         model = User
         fields = ('username', 'password')
+        verbose_name_plural = 'Логин'
 
 
 class UserRegistrationForm(UserCreationForm):
@@ -96,6 +98,7 @@ class UserRegistrationForm(UserCreationForm):
             'password1',
             'password2'
         )
+        verbose_name_plural = 'Регистрация'
 
 
 class UserProfileForm(UserChangeForm):
@@ -147,3 +150,4 @@ class UserProfileForm(UserChangeForm):
             'username',
             'email'
         )
+        verbose_name_plural = 'Профиль'
