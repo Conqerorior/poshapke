@@ -40,7 +40,6 @@ def profile(request):
             instance=request.user,
             data=request.POST,
             files=request.FILES)
-        print(request.FILES)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('users:profile'))
