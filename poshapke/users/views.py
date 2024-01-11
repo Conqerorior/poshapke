@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse
 
@@ -40,6 +40,7 @@ def profile(request):
             instance=request.user,
             data=request.POST,
             files=request.FILES)
+        print(request.FILES)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('users:profile'))
@@ -47,3 +48,7 @@ def profile(request):
         form = UserProfileForm(instance=request.user)
     context = {'title': 'Профиль', 'form': form}
     return render(request, 'users/profile.html', context=context)
+
+
+def user_logout(request):
+    pass
