@@ -52,4 +52,5 @@ def profile(request):
 
 
 def user_logout(request):
-    pass
+    logout(request=request)
+    return HttpResponseRedirect(reverse('index'))
