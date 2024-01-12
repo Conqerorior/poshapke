@@ -41,7 +41,8 @@ class Products(models.Model):
     )
     slug = models.CharField(
         max_length=128,
-        verbose_name='URL Продукта'
+        verbose_name='URL Продукта',
+        unique=True
     )
     description = models.TextField(
         max_length=256,
