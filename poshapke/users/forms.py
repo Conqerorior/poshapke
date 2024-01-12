@@ -131,6 +131,7 @@ class UserProfileForm(UserChangeForm):
         required=False
     )
     username = forms.CharField(
+        disabled=True,
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control py-4',
@@ -139,6 +140,7 @@ class UserProfileForm(UserChangeForm):
         )
     )
     email = forms.CharField(
+        disabled=True,
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control py-4',
