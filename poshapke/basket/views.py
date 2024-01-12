@@ -8,9 +8,8 @@ from products.models import Products
 def basket_add(request, slug):
     user = request.user
     product = get_object_or_404(Products, slug=slug)
-    baskets = Basket.objects.filter(user=user, product=product)
-    if baskets.exists():
-        basket = baskets.first()
+    basket = Basket.objects.filter(user=user, product=product).first()
+    if basket:
         basket.quantity += 1
         basket.save()
     Basket.objects.create(user=user, product=product, quantity=1)

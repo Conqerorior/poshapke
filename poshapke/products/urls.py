@@ -1,4 +1,4 @@
-from django.urls import path, include
+from django.urls import path
 
 from basket.views import basket_add
 from products.views import products

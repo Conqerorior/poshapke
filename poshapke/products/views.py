@@ -11,7 +11,7 @@ def products(request):
     context = {
         'title': 'Товары',
         'categories': Category.objects.all(),
-        'products': Products.objects.all()
+        'products': Products.objects.all(),
     }
     return render(request, template_name='products/products.html',
                   context=context)
