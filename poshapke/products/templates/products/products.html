@@ -16,7 +16,7 @@
 
             <h1 class="my-4">Store</h1>
             <div class="list-group">
-                <a href="{% url 'products:products' %}" class="list-group-item">Все категории</a>
+                <a href="{% url 'products:index' %}" class="list-group-item">Все категории</a>
                 {% for cat in categories %}
                 <a href="{% url 'products:category' cat.slug %}" class="list-group-item">{{ cat.name }}</a>
                 {% endfor %}
