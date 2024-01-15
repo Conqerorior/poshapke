@@ -3,7 +3,6 @@ from django.db import models
 
 
 class Category(models.Model):
-
     name = models.CharField(
         max_length=128,
         unique=True,
@@ -33,7 +32,6 @@ class Category(models.Model):
 
 
 class Products(models.Model):
-
     name = models.CharField(
         max_length=128,
         help_text='Название Товара',
@@ -105,3 +103,11 @@ class Products(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class BasketQuerySet(models.QuerySet):
+    def total_sum(self):
+        return sum(basket.sum_basket() for basket in self)
+
+    def total_quantity(self):
+        return sum(basket.quantity for basket in self)

@@ -1,6 +1,6 @@
 from django.db import models
 
-from products.models import Products
+from products.models import Products, BasketQuerySet
 from users.models import Users
 
 
@@ -24,6 +24,8 @@ class Basket(models.Model):
         verbose_name='Время добавления в Корзину'
     )
 
+    objects = BasketQuerySet.as_manager()
+
     class Meta:
         verbose_name = 'Корзина'
         verbose_name_plural = 'Корзина'
@@ -31,3 +33,6 @@ class Basket(models.Model):
 
     def __str__(self):
         return f'{self.user} {self.product}'
+
+    def sum_basket(self):
+        return self.product.price * self.quantity

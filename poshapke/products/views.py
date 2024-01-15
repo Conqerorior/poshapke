@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+from basket.models import Basket
 from products.models import Category, Products
 
 
