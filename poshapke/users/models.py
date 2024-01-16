@@ -64,6 +64,4 @@ class EmailVerification(models.Model):
         )
 
     def is_expired(self):
-        print(now())
-        print(self.expiration)
         return self.expiration >= now()

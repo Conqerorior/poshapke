@@ -56,13 +56,12 @@ class EmailVerificationView(TitleMixin, TemplateView):
             user=user,
             url_uuid=url_uuid
         )
-        print(email_verification.first().is_expired())
-        print(email_verification.first())
         if (email_verification.exists() and
                 user == request.user and
                 email_verification.first().is_expired()):
             user.is_verified_email = True
             user.save()
+
             return super().get(request, *args, **kwargs)
         else:
             return HttpResponseRedirect(reverse('index'))
