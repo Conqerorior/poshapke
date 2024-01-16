@@ -106,3 +106,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 LOGIN_URL = '/users/login/'
+
+LOGIN_REDIRECT_URL = 'index'
+
+LOGOUT_REDIRECT_URL = 'index'
