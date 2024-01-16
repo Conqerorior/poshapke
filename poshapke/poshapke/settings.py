@@ -88,16 +88,14 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Media
 STATIC_URL = 'static/'
-
 STATICFILES_DIRS = (BASE_DIR / 'static/',)
-
 MEDIA_URL = '/media/'
-
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# User
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 AUTH_USER_MODEL = 'users.Users'
 
 AUTHENTICATION_BACKENDS = [
@@ -106,7 +104,8 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 LOGIN_URL = '/users/login/'
-
 LOGIN_REDIRECT_URL = 'index'
-
 LOGOUT_REDIRECT_URL = 'index'
+
+# Send e-mail
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

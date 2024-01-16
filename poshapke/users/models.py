@@ -8,3 +8,33 @@ class Users(AbstractUser):
         upload_to='users_image',
         help_text='Загрузите Изображение'
     )
+    is_verified_email = models.BooleanField(
+        default=False,
+        verbose_name='Подтверждение Почты'
+    )
+
+
+class EmailVerification(models.Model):
+    url_uuid = models.UUIDField(
+        unique=True,
+        verbose_name='Уникальная ссылка'
+    )
+    created = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name='Время Создания'
+    )
+    expiration = models.DateTimeField(
+        verbose_name='Истечение срока действия'
+    )
+    user = models.ForeignKey(
+        to=Users,
+        on_delete=models.CASCADE,
+        verbose_name='Новый Пользователь'
+    )
+
+    class Meta:
+        verbose_name = 'Подтверждение Почты'
+        verbose_name_plural = 'Подтверждение Почты'
+
+    def __str__(self):
+        return self.user.email
