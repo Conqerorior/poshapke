@@ -1,8 +1,14 @@
+import uuid
+from datetime import timedelta
+
 from django.contrib.auth import get_user_model
+from django.utils.timezone import now
 from django.contrib.auth.forms import (AuthenticationForm,
                                        UserCreationForm,
                                        UserChangeForm)
 from django import forms
+
+from users.models import EmailVerification
 
 User = get_user_model()
 
@@ -105,6 +111,17 @@ class UserRegistrationForm(UserCreationForm):
         if User.objects.filter(email=email).exists():
             raise forms.ValidationError('Такой email уже существует')
         return email
+
+    def save(self, commit=True):
+        user = super(UserRegistrationForm, self).save(commit=True)
+        expiration = now() + timedelta(hours=48)
+        uuid_email = EmailVerification.objects.create(
+            url_uuid=uuid.uuid4(),
+            user=user,
+            expiration=expiration
+        )
+        uuid_email.send_verification_email()
+        return user
 
 
 class UserProfileForm(UserChangeForm):

@@ -16,7 +16,7 @@ class EmailVerificationAdmin(admin.ModelAdmin):
         'expiration'
     )
     readonly_fields = (
-        'expiration',
+        'created',
     )
 
 
