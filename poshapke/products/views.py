@@ -1,21 +1,19 @@
 from django.views.generic import TemplateView, ListView
 
+from common.mixins import TitleMixin
 from products.models import Category, Products
 
 
-class IndexView(TemplateView):
+class IndexView(TitleMixin, TemplateView):
     template_name = 'products/index.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(IndexView, self).get_context_data()
-        context['title'] = 'Главная Страница'
-        return context
+    title = 'Главная Страница'
 
 
-class ProductsListView(ListView):
+class ProductsListView(TitleMixin, ListView):
     model = Products
     template_name = 'products/products.html'
     paginate_by = 3
+    title = 'Каталог'
 
     def get_queryset(self):
         product = super(ProductsListView, self).get_queryset()
@@ -24,6 +22,5 @@ class ProductsListView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(ProductsListView, self).get_context_data()
-        context['title'] = 'Каталог'
         context['categories'] = Category.objects.all()
         return context
