@@ -1,11 +1,11 @@
 from django.urls import path, include
 
-from products.views import products
+from products.views import ProductsListView
 
 app_name = 'products'
 
 urlpatterns = [
-    path('products/', products, name='index'),
-    path('products/<str:slug>', products, name='category'),
+    path('products/', ProductsListView.as_view(), name='index'),
+    path('products/<str:slug>', ProductsListView.as_view(), name='category'),
     path('products/', include('basket.urls', namespace='basket'))
 ]
