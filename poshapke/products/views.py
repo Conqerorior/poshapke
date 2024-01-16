@@ -27,19 +27,3 @@ class ProductsListView(ListView):
         context['title'] = 'Каталог'
         context['categories'] = Category.objects.all()
         return context
-
-# def products(request, slug=None):
-#     per_page = 3
-#     product = Products.objects.filter(
-#         category__slug=slug) if slug else Products.objects.all()
-#     paginator = Paginator(product, per_page=per_page)
-#     page = request.GET.get('page', 1)
-#     page_products = paginator.page(page)
-#
-#     context = {
-#         'title': 'Товары',
-#         'categories': Category.objects.all(),
-#         'products': page_products,
-#     }
-#     return render(request, template_name='products/products.html',
-#                   context=context)
