@@ -14,6 +14,8 @@ DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = [os.getenv('ALLOWED_HOSTS')]
 
+DOMAIN_NAME = os.getenv('DOMAIN_NAME', 'localhost')
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -25,7 +27,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'products.apps.ProductsConfig',
     'users.apps.UsersConfig',
-    'basket.apps.BasketConfig'
+    'basket.apps.BasketConfig',
 ]
 
 MIDDLEWARE = [
