@@ -1,8 +1,8 @@
 from django.contrib.auth import get_user_model
-from django.contrib import messages
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
+from django.contrib.messages.views import SuccessMessageMixin
 
 from basket.models import Basket
 from users.forms import UserLoginForm, UserRegistrationForm, UserProfileForm
@@ -16,11 +16,12 @@ class UserLoginView(LoginView):
     form_class = UserLoginForm
 
 
-class UserRegistrationView(CreateView):
+class UserRegistrationView(SuccessMessageMixin, CreateView):
     model = User
     form_class = UserRegistrationForm
     template_name = 'users/register.html'
     success_url = reverse_lazy('users:login')
+    success_message = 'Вы успешно зарегистрированы !'
 
     def get_context_data(self, **kwargs):
         context = super(UserRegistrationView, self).get_context_data()
