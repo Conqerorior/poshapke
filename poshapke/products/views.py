@@ -5,6 +5,9 @@ from products.models import Category, Products
 
 
 class IndexView(TitleMixin, TemplateView):
+    """
+    Главная Страница.
+    """
     template_name = 'products/index.html'
     title = 'Главная Страница'
 
