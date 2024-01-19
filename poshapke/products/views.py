@@ -13,6 +13,9 @@ class IndexView(TitleMixin, TemplateView):
 
 
 class ProductsListView(TitleMixin, ListView):
+    """
+    Раздел с Товаром.
+    """
     model = Products
     template_name = 'products/products.html'
     paginate_by = 3
