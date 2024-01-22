@@ -35,9 +35,7 @@ class Category(models.Model):
 
 
 class Products(models.Model):
-    """
-    Категория Продуктов.
-    """
+
     name = models.CharField(
         max_length=128,
         help_text='Название Товара',
