@@ -108,9 +108,7 @@ class Products(models.Model):
 
 
 class BasketQuerySet(models.QuerySet):
-    """
-    Возвращает сумму и количество товара в корзине.
-    """
+
     def total_sum(self):
         return sum(basket.sum_basket() for basket in self)
 
