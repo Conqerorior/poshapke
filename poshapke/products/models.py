@@ -3,6 +3,9 @@ from django.db import models
 
 
 class Category(models.Model):
+    """
+    Таблица Категории.
+    """
 
     name = models.CharField(
         max_length=128,
