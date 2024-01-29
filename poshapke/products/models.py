@@ -108,6 +108,9 @@ class Products(models.Model):
 
 
 class BasketQuerySet(models.QuerySet):
+    """
+    Добавляем методы к менеджеру.
+    """
 
     def total_sum(self):
         return sum(basket.sum_basket() for basket in self)
