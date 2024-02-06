@@ -1,4 +1,4 @@
-from django.views.generic import TemplateView, ListView
+from django.views.generic import ListView, TemplateView
 
 from common.mixins import TitleMixin
 from products.models import Category, Products

@@ -1,6 +1,6 @@
 from django.db import models
 
-from products.models import Products, BasketQuerySet
+from products.models import BasketQuerySet, Products
 from users.models import Users
 
 
