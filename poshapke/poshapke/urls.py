@@ -9,11 +9,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
     path('', include('products.urls', namespace='products')),
-    path('users/', include('users.urls', namespace='users'))
+    path('users/', include('users.urls', namespace='users')),
+    path('accounts/', include('allauth.urls')),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
 admin.site.site_header = 'Панель Администратора Магазина'
 admin.site.index_title = 'Создание и удаление данных'
