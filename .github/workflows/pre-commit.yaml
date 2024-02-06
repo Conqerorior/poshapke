@@ -15,7 +15,7 @@ jobs:
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
-        python-version: "3.9.10"
+        python-version: "3.9"
 
     - name: Get list of changed files
       id: changed-files
