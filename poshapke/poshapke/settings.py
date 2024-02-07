@@ -64,7 +64,6 @@ TEMPLATES = [
         },
     },
 ]
-
 WSGI_APPLICATION = 'poshapke.wsgi.application'
 
 INTERNAL_IPS = [
