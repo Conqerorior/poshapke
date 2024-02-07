@@ -23,7 +23,10 @@ class UserLoginForm(AuthenticationForm):
     )
     password = forms.CharField(
         widget=forms.PasswordInput(
-            attrs={'class': 'form-control py-4', 'placeholder': 'Введите пароль'}
+            attrs={
+                'class': 'form-control py-4',
+                'placeholder': 'Введите пароль',
+            }
         )
     )
 
@@ -43,7 +46,10 @@ class UserRegistrationForm(UserCreationForm):
     last_name = forms.CharField(
         label='Фамилия',
         widget=forms.TextInput(
-            attrs={'class': 'form-control py-4', 'placeholder': 'Введите фамилию'}
+            attrs={
+                'class': 'form-control py-4',
+                'placeholder': 'Введите фамилию',
+            }
         ),
     )
     username = forms.CharField(
@@ -67,13 +73,19 @@ class UserRegistrationForm(UserCreationForm):
     password1 = forms.CharField(
         label='Пароль',
         widget=forms.PasswordInput(
-            attrs={'class': 'form-control py-4', 'placeholder': 'Введите пароль'}
+            attrs={
+                'class': 'form-control py-4',
+                'placeholder': 'Введите пароль',
+            }
         ),
     )
     password2 = forms.CharField(
         label='Подтверждение пароля',
         widget=forms.PasswordInput(
-            attrs={'class': 'form-control py-4', 'placeholder': 'Подтвердите пароль'}
+            attrs={
+                'class': 'form-control py-4',
+                'placeholder': 'Подтвердите пароль',
+            }
         ),
     )
 
@@ -109,15 +121,20 @@ class UserProfileForm(UserChangeForm):
         widget=forms.TextInput(attrs={'class': 'form-control py-4'})
     )
     image = forms.ImageField(
-        widget=forms.FileInput(attrs={'class': 'custom-file-input'}), required=False
+        widget=forms.FileInput(attrs={'class': 'custom-file-input'}),
+        required=False,
     )
     username = forms.CharField(
         disabled=True,
-        widget=forms.TextInput(attrs={'class': 'form-control py-4', 'readonly': True}),
+        widget=forms.TextInput(
+            attrs={'class': 'form-control py-4', 'readonly': True}
+        ),
     )
     email = forms.CharField(
         disabled=True,
-        widget=forms.TextInput(attrs={'class': 'form-control py-4', 'readonly': True}),
+        widget=forms.TextInput(
+            attrs={'class': 'form-control py-4', 'readonly': True}
+        ),
     )
 
     class Meta:
