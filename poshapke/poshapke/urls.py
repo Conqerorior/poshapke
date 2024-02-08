@@ -20,6 +20,5 @@ if settings.DEBUG:
         settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
     )
 
-
 admin.site.site_header = 'Панель Администратора Магазина'
 admin.site.index_title = 'Создание и удаление данных'
