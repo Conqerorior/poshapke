@@ -9,6 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
     path('', include('products.urls', namespace='products')),
+    path('', include('orders.urls', namespace='orders')),
     path('users/', include('users.urls', namespace='users')),
     path('accounts/', include('allauth.urls')),
 ]
